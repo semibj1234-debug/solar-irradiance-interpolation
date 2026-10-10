@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "training_count": 88,
+  "target_count": 27,
+  "basis_count": 256,
+  "grid": [
+    16,
+    16
+  ],
+  "evaluation_count": 21,
+  "excluded_count": 6,
+  "metrics": {
+    "count": 21,
+    "MAE": 393.5954075577725,
+    "RMSE": 536.523071687029
+  },
+  "noise_variance_standardized": 0.43617523983185696,
+  "noise_variance_original": 43260.22832931255,
+  "noise_sd_original": 207.9909332863155,
+  "log_likelihood_standardized": -104.15077353413855,
+  "log_likelihood_original": -610.3575809141342,
+  "converged": true,
+  "selected_start": 2,
+  "selected_iterations": 433,
+  "last_absolute_ll_change": 8.593119105171354e-09,
+  "converged_starts": 8,
+  "fit_seconds": 6.140308100002585,
+  "condition_number": 82.4144907368265,
+  "machine_zero_weights": 171,
+  "minimum_variance": 0.0,
+  "positive_minimum_variance": 5e-323,
+  "maximum_variance": 635.7473008166525,
+  "variance_quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    4.5541892796411724e-256,
+    635.7473008166525
+  ],
+  "jitter": 0.0,
+  "pruned_basis_count": 0,
+  "audit": {
+    "passed": true,
+    "reference_precision": 53,
+    "double_precision_likelihood_difference": 1.4210854715202004e-14,
+    "likelihood_difference": 1.4210854715202004e-14,
+    "prediction_max_difference": 1.9539925233402755e-14,
+    "variance_max_difference": 3.552713678800501e-15
+  },
+  "source_code_unchanged": true
+}

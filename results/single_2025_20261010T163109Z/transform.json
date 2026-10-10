@@ -1,0 +1,15 @@
+{
+  "coordinate_min": [
+    -2.1428982355631514,
+    -0.7160546445008505
+  ],
+  "coordinate_span": [
+    3.152569515185437,
+    1.8035177338747994
+  ],
+  "response_mean": 805.5869713834653,
+  "response_sd": 314.929902987464,
+  "response_ddof": 0,
+  "coordinate_fit": "training subset only",
+  "mean_function": "zero after global training standardization"
+}

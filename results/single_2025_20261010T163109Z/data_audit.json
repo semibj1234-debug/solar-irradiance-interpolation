@@ -1,0 +1,38 @@
+{
+  "snapshot": "2024-08-01 12:00:00+09:00",
+  "training_count": 88,
+  "target_count": 27,
+  "raw_training_count": 183,
+  "aggregation": "coordinate mean",
+  "missing_or_nonfinite": 0,
+  "duplicate_training_coordinates": 0,
+  "duplicate_target_coordinates": 0,
+  "overlapping_coordinates": 0,
+  "training_coordinate_min": [
+    -2.1428982355631514,
+    -0.7160546445008505
+  ],
+  "training_coordinate_max": [
+    1.009671279622286,
+    1.087463089373949
+  ],
+  "training_nins_min": 170.4153354632588,
+  "training_nins_max": 1257.4133333333334,
+  "coordinate_units": "not established from source metadata; not labeled km",
+  "response_units": "original nins units; physical unit not established",
+  "source_count_distribution": {
+    "2": 38,
+    "1": 30,
+    "3": 10,
+    "4": 6,
+    "5": 3,
+    "8": 1
+  },
+  "aggregation_recomputed": true,
+  "hashes": {
+    "training.parquet": "281d854b3df616d4d1c0d614d91f8ff4be2f4cedf0b3ddcd9d9a3d76647e77b0",
+    "heldout.parquet": "edf24c57cdd763e8e579a55464ea9f596267eb7c7944e5fdbf117d7b8d6130d1",
+    "raw_snapshot.parquet": "a930b893a84800f038ab1a0d9566a20680646f12021126d77d2cee7d7ff33e1a",
+    "complete.json": "66b5d2c65aa0e4e0754bda72f54b08fbd7324021ec48f5e5346c85442f93be1c"
+  }
+}

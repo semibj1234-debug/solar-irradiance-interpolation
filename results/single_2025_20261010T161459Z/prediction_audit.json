@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "reference_precision": 53,
+  "double_precision_likelihood_difference": 1.4210854715202004e-14,
+  "likelihood_difference": 1.4210854715202004e-14,
+  "prediction_max_difference": 1.9539925233402755e-14,
+  "variance_max_difference": 3.552713678800501e-15
+}

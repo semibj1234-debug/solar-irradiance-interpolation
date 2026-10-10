@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "paper_doi": "10.1061/AJRUA6.RUENG-1403",
+    "status": "2D application of enhanced SR equations (1),(3),(8),(9),(16),(20); application choices documented in README",
+    "grid_nx": 16,
+    "grid_ny": 16,
+    "basis_count": 256,
+    "basis": "orthonormal full tensor DCT-II on fixed regular grid",
+    "operator": "bilinear four-node weights; training bounding rectangle; no coordinate snapping",
+    "starts": 8,
+    "maxiter": 10000,
+    "likelihood_absolute_tolerance": 1e-08,
+    "initial_weight_multiplier": [
+      0.5,
+      1.5
+    ],
+    "initial_noise_variance": [
+      0.01,
+      0.5
+    ],
+    "jitter": 0.0,
+    "explicit_basis_pruning": false,
+    "predictive_distribution": "latent variance from (9) plus fitted iid measurement noise for noisy held-out responses"
+  },
+  "seed": 20261011,
+  "paper_path": "E:\\04_Project\\01_OIBC 2025\\선행 연구 조사\\miao-wang-2024-interpolation-of-sparse-measurements-and-quantification-of-measurement-error-using-enhanced-kriging-with.pdf",
+  "paper_sha256": "54ab7f03d1da9a06440c112f3d387965bd2d8b3e05418a2bfc460dcd4a12ec5f",
+  "core_hashes": {
+    "sr.py": "94a700f8e42a9a19fc09da62e6c71a32d00a274665ea39d630e12569b6949481",
+    "data.py": "3f941fa9ea915124320c73fa172a533738426973585f6397db790879a769b73e",
+    "audit.py": "da2b3eacc5b2b2ea1a93f5409aaabb937a05d3d6e0a76cb057f06234aba10d21",
+    "tests.py": "0cf64a3e57836424b528ff9d1ef539934606e1c126fcc0792a442e65f300577e",
+    "config.json": "ddb0be298eac846b60192c46785dfdeba8c6acc7c587ac5a3b0d3dcd4170efa6",
+    "README.md": "fc89e8ba13a90f5c7c59d4f31d6c312b1af5e16d7b99c701b83bce7b450d8cdb",
+    "run.py": "813037c999b1716511e2df5bc574258601f595271fb62520ae5912de7b2728b2"
+  },
+  "new_code_hashes": {
+    "single_2025.py": "0bce07a9037ab050eb7621eacdfcf8f7b3838047ad9591c2ae99f7391e660361",
+    "single_2025_tests.py": "d086dd45740daddbd6df8e6153d26aae90bd19d068b0a00ac87293e2db27e2d1"
+  },
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3"
+  },
+  "scope": "one full-training snapshot; no CV, adaptive M or model comparisons",
+  "paper_verification": "2025 PDF pp2-5, equations 1-3,8-12,16,20; pp4-5 rendered and visually checked"
+}

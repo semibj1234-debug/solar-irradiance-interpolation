@@ -1,0 +1,16 @@
+test_basis_and_operator (sr_kriging_benchmark.tests.Equations.test_basis_and_operator) ... ok
+test_sr_covariance_psd_and_paper_likelihood (sr_kriging_benchmark.tests.Equations.test_sr_covariance_psd_and_paper_likelihood) ... ok
+test_sr_equations_16_20_against_dense_parameter_space (sr_kriging_benchmark.tests.Equations.test_sr_equations_16_20_against_dense_parameter_space) ... ok
+test_sr_prediction_equations_8_9_and_coefficient_posterior (sr_kriging_benchmark.tests.Equations.test_sr_prediction_equations_8_9_and_coefficient_posterior) ... ok
+test_high_precision_reference (sr_kriging_benchmark.tests.Equations.test_high_precision_reference) ... ok
+test_hull_mask_and_extrapolation_exclusion (sr_kriging_benchmark.tests.Equations.test_hull_mask_and_extrapolation_exclusion) ... ok
+test_1d_and_rectangular_kronecker_order (sr_kriging_benchmark.single_2025_tests.Single2025Tests.test_1d_and_rectangular_kronecker_order) ... ok
+test_actual_bilinear_weights_independently (sr_kriging_benchmark.single_2025_tests.Single2025Tests.test_actual_bilinear_weights_independently) ... ok
+test_multiple_update_pairs_and_noise_recomputation (sr_kriging_benchmark.single_2025_tests.Single2025Tests.test_multiple_update_pairs_and_noise_recomputation) ... ok
+test_no_threshold_or_noise_floor (sr_kriging_benchmark.single_2025_tests.Single2025Tests.test_no_threshold_or_noise_floor) ... ok
+test_training_only_and_label_independent_prediction (sr_kriging_benchmark.single_2025_tests.Single2025Tests.test_training_only_and_label_independent_prediction) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.067s
+
+OK

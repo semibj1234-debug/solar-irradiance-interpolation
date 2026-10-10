@@ -1,0 +1,10 @@
+{
+  "original_directory": "E:/04_Project/01_OIBC 2025/code_paper/refactored/sr_kriging_benchmark",
+  "current_directory": "E:\\04_Project\\01_OIBC 2025\\code_SRKriging",
+  "historical_manifest_preserved": true,
+  "runtime_change": "Standalone entry points; verified original core and data reused read-only; default outputs moved to code_SRKriging/results",
+  "new_code_sha256": {
+    "single_2025.py": "c91d3095b15244f56ed2d46f435bffcf041342865407d01800edcafe62c08305",
+    "single_2025_tests.py": "70dbbf761d7cf54a81e4be29119cddec41cab3efeca5cf42d33a7817c139f7f5"
+  }
+}

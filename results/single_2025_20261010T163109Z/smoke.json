@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "iterations": 20,
+  "convergence_claim": false,
+  "audit": {
+    "passed": true,
+    "reference_precision": 53,
+    "double_precision_likelihood_difference": 1.4210854715202004e-14,
+    "likelihood_difference": 1.4210854715202004e-14,
+    "prediction_max_difference": 8.881784197001252e-15,
+    "variance_max_difference": 1.7763568394002505e-15
+  }
+}
