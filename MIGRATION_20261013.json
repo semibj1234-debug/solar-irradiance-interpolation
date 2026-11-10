@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-13 KST",
+  "source": "E:\\04_Project\\01_OIBC 2025\\code_paper\\refactored\\sr_kriging_benchmark",
+  "backup": "C:\\Users\\user\\Git\\solar-irradiance-interpolation\\migration_backup_20261013",
+  "math_changes": false,
+  "changes": [
+    "local SR imports",
+    "unchanged train transform and seed extracted",
+    "SR-only tests extracted",
+    "snapshot copied byte-for-byte",
+    "heldout finiteness preflight"
+  ],
+  "source_hashes": {
+    "sr.py": "94a700f8e42a9a19fc09da62e6c71a32d00a274665ea39d630e12569b6949481",
+    "audit.py": "da2b3eacc5b2b2ea1a93f5409aaabb937a05d3d6e0a76cb057f06234aba10d21",
+    "tests.py": "0cf64a3e57836424b528ff9d1ef539934606e1c126fcc0792a442e65f300577e",
+    "data.py": "3f941fa9ea915124320c73fa172a533738426973585f6397db790879a769b73e",
+    "config.json": "ddb0be298eac846b60192c46785dfdeba8c6acc7c587ac5a3b0d3dcd4170efa6",
+    "README.md": "fc89e8ba13a90f5c7c59d4f31d6c312b1af5e16d7b99c701b83bce7b450d8cdb",
+    "run.py": "813037c999b1716511e2df5bc574258601f595271fb62520ae5912de7b2728b2"
+  },
+  "snapshot_hashes": {
+    "complete.json": "66b5d2c65aa0e4e0754bda72f54b08fbd7324021ec48f5e5346c85442f93be1c",
+    "heldout.parquet": "edf24c57cdd763e8e579a55464ea9f596267eb7c7944e5fdbf117d7b8d6130d1",
+    "raw_snapshot.parquet": "a930b893a84800f038ab1a0d9566a20680646f12021126d77d2cee7d7ff33e1a",
+    "training.parquet": "281d854b3df616d4d1c0d614d91f8ff4be2f4cedf0b3ddcd9d9a3d76647e77b0"
+  },
+  "paper": "E:\\04_Project\\01_OIBC 2025\\선행 연구 조사\\miao-wang-2024-interpolation-of-sparse-measurements-and-quantification-of-measurement-error-using-enhanced-kriging-with.pdf",
+  "all_seven_sr_function_asts_identical": true
+}

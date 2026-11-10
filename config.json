@@ -1,0 +1,26 @@
+{
+  "snapshot": "2024-08-01 12:00:00+09:00",
+  "sr": {
+    "paper_doi": "10.1061/AJRUA6.RUENG-1403",
+    "status": "2D application of enhanced SR equations (1),(3),(8),(9),(16),(20); application choices documented in README",
+    "grid_nx": 16,
+    "grid_ny": 16,
+    "basis_count": 256,
+    "basis": "orthonormal full tensor DCT-II on fixed regular grid",
+    "operator": "bilinear four-node weights; training bounding rectangle; no coordinate snapping",
+    "starts": 8,
+    "maxiter": 10000,
+    "likelihood_absolute_tolerance": 1e-08,
+    "initial_weight_multiplier": [
+      0.5,
+      1.5
+    ],
+    "initial_noise_variance": [
+      0.01,
+      0.5
+    ],
+    "jitter": 0.0,
+    "explicit_basis_pruning": false,
+    "predictive_distribution": "latent variance from (9) plus fitted iid measurement noise for noisy held-out responses"
+  }
+}

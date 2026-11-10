@@ -1,9 +1,9 @@
 from pathlib import Path
-CORE_PROJECT = Path('E:/04_Project/01_OIBC 2025/code_paper/refactored')
+
 
 import sys
 sys.dont_write_bytecode = True
-sys.path.insert(0, str(CORE_PROJECT))
+
 
 from datetime import datetime, timezone
 import argparse
@@ -20,16 +20,16 @@ import scipy
 from scipy.spatial import Delaunay
 from threadpoolctl import threadpool_limits
 
-from shared_partition_gp.data import TrainingTransform, child_seed
-from sr_kriging_benchmark import sr
-from sr_kriging_benchmark.audit import audit_fit
-from sr_kriging_benchmark.data import ROOT as CORE_ROOT, read, sha
+from data import TrainingTransform, child_seed
+import sr
+from audit import audit_fit
+from data import ROOT as CORE_ROOT, read, sha
 ROOT = Path(__file__).resolve().parent
 
 # Application choices, frozen before looking at external prediction errors.
 SEED = 20261011
 SNAPSHOT = "2024-08-01 12:00:00+09:00"
-SOURCE = CORE_PROJECT / "shared_partition_gp/results/poster_v1/data"
+SOURCE = ROOT / "data_snapshot"
 SETTINGS = dict(read(CORE_ROOT / "config.json")["sr"])
 PAPER = Path("E:/04_Project/01_OIBC 2025/선행 연구 조사/miao-wang-2024-interpolation-of-sparse-measurements-and-quantification-of-measurement-error-using-enhanced-kriging-with.pdf")
 
@@ -67,6 +67,9 @@ def load_and_check(out):
     train = pd.read_parquet(SOURCE / "training.parquet")
     target = pd.read_parquet(SOURCE / "heldout.parquet", columns=["pv_id", "coord1", "coord2"])
     raw = pd.read_parquet(SOURCE / "raw_snapshot.parquet")
+    # Preflight validation only; target responses are not returned or passed to fitting.
+    heldout_check = pd.read_parquet(SOURCE / "heldout.parquet", columns=["nins"])
+    assert np.isfinite(heldout_check.nins).all()
     assert len(train) == 88 and len(target) == 27 and len(raw) == 183
     for f in (train, target):
         assert not f.duplicated(["coord1", "coord2"]).any()
@@ -154,7 +157,7 @@ def run(out):
                              frequency_y=np.arange(len(q))%16,
                              variance_standardized=q,variance_original=q*tr.response_sd**2))
     basis.to_csv(out/"basis_variances.csv",index=False)
-    # No target labels have been loaded before this point.
+    # Target labels were checked for finiteness only; none entered training or start selection.
     pred = sr.predict_sr(fit,x,z,xx[defined],SETTINGS)
     audit = audit_fit("SR",fit,x,z,xx[defined],pred,SETTINGS)
     save(out/"prediction_audit.json",audit)
@@ -209,7 +212,7 @@ def main():
     out=args.output or ROOT/"results"/("single_2025_"+datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     out.mkdir(parents=True,exist_ok=False)
     manifest=dict(settings=SETTINGS,seed=SEED,paper_path=str(PAPER),paper_sha256=sha(PAPER),
-                  core_hashes={n:sha(CORE_ROOT/n) for n in ["sr.py","data.py","audit.py","tests.py","config.json","README.md","run.py"]},
+                  core_hashes={n:sha(CORE_ROOT/n) for n in ["sr.py","data.py","audit.py","tests.py","config.json","README.md","single_2025.py"]},
                   new_code_hashes={n:sha(ROOT/n) for n in ["single_2025.py","single_2025_tests.py"]},
                   versions=dict(python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__,pandas=pd.__version__),
                   scope="one full-training snapshot; no CV, adaptive M or model comparisons",

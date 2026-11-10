@@ -2,15 +2,15 @@
 from pathlib import Path
 import sys
 sys.dont_write_bytecode = True
-sys.path.insert(0, str(Path("E:/04_Project/01_OIBC 2025/code_paper/refactored")))
+
 import inspect
 import unittest
 import numpy as np
 import pandas as pd
 from numpy.testing import assert_allclose, assert_array_equal
 from scipy.fft import dct
-from sr_kriging_benchmark import sr
-from sr_kriging_benchmark.tests import Equations
+import sr
+from tests import Equations
 
 
 class Single2025Tests(unittest.TestCase):
@@ -82,11 +82,31 @@ class Single2025Tests(unittest.TestCase):
         assert_allclose(z.std(),1,atol=1e-14)
 
 
+    def test_hull_mask_and_evaluation(self):
+        from scipy.spatial import Delaunay
+        from single_2025 import evaluate
+        x=np.array([[0.,0.],[1.,0.],[0.,1.],[1.,1.]])
+        targets=np.array([[.5,.5],[1.,1.],[1.1,.5]])
+        mask=Delaunay(x).find_simplex(targets,tol=1e-12)>=0
+        assert_array_equal(mask,[True,True,False])
+        score=evaluate(np.array([1.,2.,np.nan]),np.array([0.,0.,np.nan]),mask)
+        self.assertEqual(score["count"],2)
+        self.assertEqual(score["MAE"],1.5)
+        self.assertAlmostEqual(score["RMSE"],np.sqrt(2.5))
+
+    def test_fit_precedes_external_evaluation(self):
+        import single_2025
+        source=inspect.getsource(single_2025.run)
+        self.assertLess(source.index("sr.fit_sr("),source.index('truth = pd.read_parquet'))
+        self.assertLess(source.index("training_arrays(train)"),source.index('truth = pd.read_parquet'))
+        self.assertEqual(Path(sr.__file__).resolve().parent,Path(__file__).resolve().parent)
+
+
 def suite():
     names=["test_basis_and_operator","test_sr_covariance_psd_and_paper_likelihood",
            "test_sr_equations_16_20_against_dense_parameter_space",
            "test_sr_prediction_equations_8_9_and_coefficient_posterior",
-           "test_high_precision_reference","test_hull_mask_and_extrapolation_exclusion"]
+           "test_high_precision_reference"]
     return unittest.TestSuite([Equations(name) for name in names]+
                               list(unittest.defaultTestLoader.loadTestsFromTestCase(Single2025Tests)))
 
